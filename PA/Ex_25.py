@@ -1,4 +1,4 @@
-# criar uma classe "Produto" que contém "nome" e "valor como atributos":
+# criar uma classe "Produto" que contém "nome" e "valor" como atributos":
 
 class Produto:
     def __init__ (self, nome, valor):
