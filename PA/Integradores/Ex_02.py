@@ -23,52 +23,47 @@ for i in range(quantidade):
 print("DADOS PARA COMPRA\n")
 
 nome_cliente = input("Insira seu nome: ")
-
-quant_compras = int(input("Deseja comprar QUANTOS produtos? "))
-
-total = 0
-for i in range(quant_compras):
-    nome_produto = input("Insira o NOME do produto desejado: ")
-    j = 0
-    produtoEncontrado = False
-    while j < len(Lista_Produtos):
-        if nome_produto == Lista_Produtos[j]["nome"]:
-            produtoEncontrado = True
-            print("Produto encontrado!")
-            quant_desejada = int(input("Insira a QUANTIDADE desejada: "))
-            subtotal = Lista_Produtos[j]["valor"] * quant_desejada
-            total += subtotal
-            break
-        j = j + 1
-
-    if produtoEncontrado == False:
-        print("Produto não encontrado.")
-        break
-
 while True:
-
-    if total >= 1000:
-        total_final = total - total*0.15
-        desconto = total - total_final
-
-    elif total >= 500:
-        total_final = total - total*0.10
-        desconto = total - total_final
-
-    elif total >= 200:
-        total_final = total - total*0.05
-        desconto = total - total_final
-
-    else:
-        total_final = total
-        desconto = total - total_final
-
-    while True:
-        novas_compras = input("Deseja realizar novas compras (S/N)? ")
-
-        if novas_compras == "N" or novas_compras == "n":
+    quant_compras = int(input("Deseja comprar QUANTOS produtos? "))
+    
+    total = 0
+    for i in range(quant_compras):
+        nome_produto = input("Insira o NOME do produto desejado: ")
+        j = 0
+        produtoEncontrado = False
+        while j < len(Lista_Produtos):
+            if nome_produto == Lista_Produtos[j]["nome"]:
+                produtoEncontrado = True
+                print("Produto encontrado!")
+                quant_desejada = int(input("Insira a QUANTIDADE desejada: "))
+                subtotal = Lista_Produtos[j]["valor"] * quant_desejada
+                total += subtotal
+                break
+            j = j + 1
+    
+        if produtoEncontrado == False:
+            print("Produto não encontrado.")
+            break
+    novas_compras = input("Deseja realizar novas compras (S/N)? ")
+    if novas_compras == "N" or novas_compras == "n":
             print("Compra finalizada!\n")
             break
+
+if total >= 1000:
+    total_final = total - total*0.15
+    desconto = total - total_final
+
+elif total >= 500:
+    total_final = total - total*0.10
+    desconto = total - total_final
+
+elif total >= 200:
+    total_final = total - total*0.05
+    desconto = total - total_final
+
+else:
+    total_final = total
+    desconto = total - total_final
 
 
     print("RESUMO DA VENDA:")
