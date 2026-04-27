@@ -8,10 +8,6 @@ while True:
     except ValueError:
         print("Insira Corretamente!")
 
-print()
-print("Informações da venda: ")
-print()
-
 while True:
     try:
         nome_produto = input("Insira o nome do produto: ")

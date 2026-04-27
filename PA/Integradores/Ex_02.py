@@ -1,13 +1,12 @@
-print("SISTEMA DE CADASTRO\n")
-print("CADASTRANDO PRODUTOS\n")
+print("\n----------- CADASTRO PRODUTOS ------------")
 
 Lista_Produtos = []
 
-quantidade = int(input("Deseja cadastrar quantos produtos? \n"))
+quantidade = int(input("\nDeseja cadastrar quantos produtos? "))
 
 for i in range(quantidade):
 
-    nome = input("Insira o NOME do produto: ")
+    nome = input("\nInsira o NOME do produto: ")
     valor = float(input("Insira o VALOR do produto: R$").replace(",", "."))
     estoque = int(input("Insira a QUANTIDADE em estoque: "))
 
@@ -20,32 +19,32 @@ for i in range(quantidade):
 
     Lista_Produtos.append(Dados_Produto)
     
-print("DADOS PARA COMPRA\n")
+print("\n----------- DADOS PARA COMPRA ------------")
 
-nome_cliente = input("Insira seu nome: ")
-
-quant_compras = int(input("Deseja comprar QUANTOS produtos? "))
-
-total = 0
-for i in range(quant_compras):
-    nome_produto = input("Insira o NOME do produto desejado: ")
-    j = 0
-    produtoEncontrado = False
-    while j < len(Lista_Produtos):
-        if nome_produto == Lista_Produtos[j]["nome"]:
-            produtoEncontrado = True
-            print("Produto encontrado!")
-            quant_desejada = int(input("Insira a QUANTIDADE desejada: "))
-            subtotal = Lista_Produtos[j]["valor"] * quant_desejada
-            total += subtotal
-            break
-        j = j + 1
-
-    if produtoEncontrado == False:
-        print("Produto não encontrado.")
-        break
+nome_cliente = input("\nInsira seu nome: ")
 
 while True:
+
+    quant_compras = int(input("\nDeseja comprar QUANTOS produtos? "))
+
+    total = 0
+    for i in range(quant_compras):
+        nome_produto = input("Insira o NOME do produto desejado: ")
+        j = 0
+        produtoEncontrado = False
+        while j < len(Lista_Produtos):
+            if nome_produto.lower() == Lista_Produtos[j]["nome"].lower():
+                produtoEncontrado = True
+                print("Produto encontrado!\n")
+                quant_desejada = int(input("Insira a QUANTIDADE desejada: "))
+                subtotal = Lista_Produtos[j]["valor"] * quant_desejada
+                total += subtotal
+                break
+            j = j + 1
+
+        if produtoEncontrado == False:
+            print("Produto não encontrado.")
+            break
 
     if total >= 1000:
         total_final = total - total*0.15
@@ -63,18 +62,17 @@ while True:
         total_final = total
         desconto = total - total_final
 
-    while True:
-        novas_compras = input("Deseja realizar novas compras (S/N)? ")
+    print("\n----------- RESUMO DA VENDA ------------\n")
 
-        if novas_compras == "N" or novas_compras == "n":
-            print("Compra finalizada!\n")
-            break
+    print(f"Cliente: {nome_cliente};")
+    print(f"Subtotal: R${total:.2f};")
+    print(f"Desconto: R${desconto:.2f};")
+    print(f"Total: R${total_final:.2f}.\n")
 
+    print("\n----------- AGRADECEMOS PELA PREFERÊNCIA! ------------\n")
 
-    print("RESUMO DA VENDA:")
-    print(f"Nome: {nome_cliente};")
-    print(f"Subtotal: {total};")
-    print(f"Desconto: {desconto};")
-    print(f"Total: {total_final};\n")
+    novas_compras = input("Deseja realizar novas compras (S/N)? ")
 
-    print("AGRADECEMOS PELA COMPRA!")
+    if novas_compras.upper() == "N":
+        print("\nCompra finalizada!\n")
+        break
