@@ -72,7 +72,7 @@ while novas_compras: # laço que vai funcionar ENQUANTO "novas_compras" (que ser
             adicionar = True # caso a devolutiva do usuário for a esperada, a variável "adicionar" se mantém como verdadeira (portanto, o laço responsável pelo cadastro de novos produtos vai se repetir)
 
         else: # condional que trata de qualquer devolutiva "para além do esperado"
-            adicionar = False #caso a devolutiva do usuário for a esperada, a variável "adicionar" se tornara falsa (portanto, o laço responsável pelo cadastro de novos produtos será interrompido)
+            adicionar = False #caso a devolutiva do usuário for diferente da esperada, a variável "adicionar" se tornara falsa (portanto, o laço responsável pelo cadastro de novos produtos será interrompido)
             print("\nConcluído!\n") # printa na tela que o processo de cadastro de produtos chegou ao fim (forma de nortear usuário)
                 
         cadastro_produtos = { # dicionário que, a cada produto criado, registra suas respectivas informações

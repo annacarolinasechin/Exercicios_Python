@@ -1,40 +1,41 @@
-"""
-11) faça um programa que simule um sistema de login. 
-Usuário tem até 3 tentativas para acertar a senha. 
-Se acertar exiba "acesso permitido".
-Caso contrário exiba "conta bloqueada"
-"""
+tentativas = 4
 
 while True:
     try:
-        usuario = input("Defina seu nome de usuário: @")
+        usuario = input("\nDefina seu NOME de usuário: @")
         break
     except ValueError:
         print("Insira um nome de usuário válido!")
 
 while True:
     try:
-        senha = int(input("Defina sua senha: "))
+        senha = int(input("Defina sua SENHA: "))
         break
     except ValueError:
         print("Insira somente números inteiros!")
 
-print()
+while tentativas:
+    while True:
+        try:
+            user_acesso = input("\nUsuário: @")
+            break
+        except ValueError:
+            print("Insira um nome de usuário válido!")
 
-tentativas = 3
+    while True:
+        try:
+            user_senha = int(input("Senha: "))
+            break
+        except ValueError:
+            print("Insira somente números inteiros!")
 
-while tentativas > 0:
-    user_acesso = input("Insira seu nome de usuário: @")
-    user_senha = int(input("Insira sua senha: "))
-
-    if user_acesso == usuario and user_senha == senha:
-        print("Usuário e senha corretos! Acesso permitido.")
+    if user_acesso == usuario and  user_senha == senha:
+        print("\nAcesso permitido!")
         break
 
     else:
-        tentativas = tentativas + 1
-        print(f"Senha incorreta! Restam {tentativas} tentativas.")
-
-
-if tentativas == 0:
-    print("Sua conta foi bloqueada!")
+        tentativas -= 1
+    print(f"Acesso incorreto, restam {tentativas} tentativas!")
+    
+    if tentativas == 0:
+        print("\nConta bloqueada!")

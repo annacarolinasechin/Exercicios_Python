@@ -6,8 +6,3 @@ for num in range(5):
     soma += valores
 
 print(f"A soma dos valores resulta em: {soma}.")
-
-
-
-
-
