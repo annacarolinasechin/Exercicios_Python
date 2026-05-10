@@ -66,6 +66,7 @@ while novas_compras: # laço que vai funcionar ENQUANTO "novas_compras" (que ser
             except ValueError:
                 print("Insira somente números inteiros!")
 
+    
         novo_cadastro = input("\nDeseja CADASTRAR um novo produto? (S/N) ") # pergunta se usuário deseja cadastrar um novo produto e adiciona a variável sua resposta
 
         if novo_cadastro.upper() == "S": # condicional que compara devolutiva do usuário com o "esperado" (.upper() converte texto inserido para letra maiúscula, garantindo que "S" seja possível, simplificando o processo)
@@ -142,10 +143,10 @@ while novas_compras: # laço que vai funcionar ENQUANTO "novas_compras" (que ser
     if novas_compras.upper() == "S": # condicional que compara devolutiva do usuário com o "esperado" (.upper() converte texto inserido para letra maiúscula, garantindo que "S" seja possível, simplificando o processo)
             novas_compras = True # se a resposta for correspondente, "novas_compras" volta a ser verdadeira e consequentemente, será repetida
             adicionar = True # se a resposta for correspondente, "adicionar" volta a ser verdadeira e consequentemente, será repetida
-        
-    else: # se a resposta for diferente
-        novas_compras = False # "novas_compras" permanece falsa e consequentemente, não será repetida
-        adicionar = False # "adicionar" permanece falsa e consequentemente, não será repetida
+
+    elif novas_compras.upper() == "N":
+        novas_compras = False
+        adicionar = False
         print("\n----------- RELATÓRIO GERAL ------------\n") # printa na tela que "agora", o relatório de tudo será exibido
         for cliente in clientes: # percorre lista e todos os valores adquiridos são movidos para a variável "clientes" (que possibilita a manipulação das informações presentes na lista agora que não estão de fato)
             print(f"Cliente: {cliente['nome']} | Valor gasto: R${cliente['total']}") # printa nome e valor gasto por cada cliente, respectivamente
@@ -156,3 +157,6 @@ while novas_compras: # laço que vai funcionar ENQUANTO "novas_compras" (que ser
         maior = maior_compra(clientes) # função "maior_compra" é chamada e recebe como parâmetro a lista clientes e já tem seu resultado armazenado
         print(f"Maior compra: {maior['nome']} | R${maior['total']:.2f}") # é printado na tela nome do cliente com compra de maior valor ("maior" recebe os valores presentes nas chaves "nome" e "total")
         print("\n------- AGRADECEMOS A PREFERÊNCIA -------\n") # printa agradecimento ao usuário
+
+    else:
+        print("Insira somente S ou N!")

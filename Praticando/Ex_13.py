@@ -8,7 +8,7 @@ while continuar:
     nome = input("Nome: ")
     idade = int(input("Idade: "))
 
-    novo_usuario = input("\nDeseja cadastrar um novo usuário (CONTINUAR/ENCERRAR)? ")
+    novo_usuario = input("\nDeseja CADASTRAR um novo usuário (CONTINUAR/ENCERRAR)? ")
 
     if novo_usuario.upper() == "CONTINUAR":
         continuar = True
@@ -29,6 +29,6 @@ for user in usuarios:
     if user["idade"] >= 18:
         maiores += 1
 
-print("\n ----- RESULTADOS -----")
+print("\n----- RESULTADOS -----")
 print(f"\nQuantidade de usuários cadastrados: {len(usuarios)}")
 print(f"Quantidade de usuários maiores de idade: {maiores}")
